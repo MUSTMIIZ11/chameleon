@@ -4,3 +4,10 @@
 
 ##  进度
 TODO LIST:
+
+
+1. Home page
+2. Login page
+3. Community page
+4. Drawing page
+5. Bookshelf page
