@@ -11,15 +11,15 @@ TODO LIST:
 
 Botton
 
-- [ ] Logo: index.html
+- [ ] Logo: 主页上的logo跳转主页(index.html)
 
-- [ ] community: community.html
+- [ ] community: 主页community主页跳转到community.html
 
-- [ ] tools: login.html —> tools.html
+- [ ] tools: tools按钮跳转login.html
 
-- [ ] bookshelf: login.html —> bookshelf.html 
+- [ ] bookshelf: 跳转顺序：bookshelf.html->login.html->bookshelf.html
 
-- [ ] get start: login.html —> community.html 
+- [ ] get start: 跳转顺序：login.html —> community.html 
 
 
 ### Login page
@@ -28,23 +28,33 @@ Botton
 
 - [ ] Sign in：数据库记录三条登陆信息
 
-- [ ] Forget password
+- [ ] Forget password：不能忘记密码（不是
 
 
 ### Community page
 
 Botton
 
-- [ ] Logo: index.html
+- [ ] Logo: 跳转到index.html
 
-- [ ] community: community.html
+- [ ] community: 跳转到community.html
 
-- [ ] tools: login.html —> tools.thml
+- [ ] tools: 跳转顺序：login.html —> tools.thml
 
-- [ ] bookshelf: login.html —> bookshelf.html 
+- [ ] bookshelf: 跳转顺序login.html —> bookshelf.html 
 
 
 ### Tools page
 
-- [ ] Bookshelf page
+- [ ] upload botton: 点击upload，作品发布到社区
+
+- [ ] save: 点击save，存到本地
+
+- [ ] share：点击share，生成二维码，扫码可以下载到手机(方便pre的时候show一下
+
+### Bookshelf page
+
+- [ ] 时间不够这个page就删了吧要不... wait for version 2.0
+
+
 
