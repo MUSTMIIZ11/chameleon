@@ -9,7 +9,7 @@ TODO LIST:
 
 ### Welcome page 
 
-Botton
+Button
 
 - [ ] Logo: 主页上的logo跳转主页(index.html)
 
@@ -24,7 +24,7 @@ Botton
 
 ### Login page
 
-Botton
+Button
 
 - [ ] Sign in：数据库记录三条登陆信息
 
@@ -33,7 +33,7 @@ Botton
 
 ### Community page
 
-Botton
+Button
 
 - [ ] Logo: 跳转到index.html
 
@@ -58,3 +58,8 @@ Botton
 
 
 
+### Useful commands
+```shell
+python manage.py startapp xxx  # 创建一个app 名字叫"xxx"
+python manage.py runserver 8080  # 运行服务
+```
