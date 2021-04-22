@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +9,14 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{%  static 'img/favicon.png' %}" rel="icon">
+  <link href="{%  static 'img/apple-touch-icon.png'%}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{%  static 'lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -70,8 +71,7 @@
       <div class="container">
 
         <header class="section-header center-block">
-          <h3 class="section-title">Welecome back!</h3>
-          <p>Sign in your account to keep design</p>
+          <h3 class="section-title">Register</h3>
         </header>
 
         <div class="row clearfix">
@@ -95,9 +95,8 @@
               </div>
               <div class="col-sm-10">
                 <div class="checkbox"> 
-                  <button class="btn btn-large btn-info" style="float:right" type="button">Sign Up</button>
-                  <button class="btn btn-large btn-link" style="float:right" type="button">Forget password?</button>
-                </div> 
+                  <button class="btn btn-large btn-info" style="float:right" type="button">Register</button>
+                </div>
               </div>
               
             </form>

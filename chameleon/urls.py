@@ -14,8 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls.static import static
 from django.urls import path,include
+from django.views.generic import TemplateView
+
+from chameleon import settings
+
 urlpatterns = [
+    path('', TemplateView.as_view(template_name='index.html'),name='index'),
     path('polls/', include('polls.urls')),
+
     path('admin/', admin.site.urls),
-]
+] + static(settings.STATIC_URL)
