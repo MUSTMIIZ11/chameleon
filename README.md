@@ -58,8 +58,11 @@ Button
 
 
 
-### Useful commands
+### Useful commands 好用的命令
 ```shell
 python manage.py startapp xxx  # 创建一个app 名字叫"xxx"
 python manage.py runserver 8080  # 运行服务
+
+python manage.py startapp tools  # 创建tools app
+
 ```
