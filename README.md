@@ -72,7 +72,10 @@ python manage.py migrate
 ### Useful commands 好用的命令
 ```shell
 python manage.py startapp xxx  # 创建一个app 名字叫"xxx"
-python manage.py runserver 8080  # 运行服务
+
+# 运行服务
+# export DJANGO_ENV=devlopment 设置了环境变量,通过该环境变量，我们的配置使用了mysql数据库
+export DJANGO_ENV=devlopment && python manage.py runserver 8080
 
 # 创建tools app,会在项目根目录下面创建tools目录
 python manage.py startapp tools
