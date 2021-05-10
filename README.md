@@ -74,6 +74,9 @@ python manage.py migrate
 python manage.py startapp xxx  # 创建一个app 名字叫"xxx"
 python manage.py runserver 8080  # 运行服务
 
-python manage.py startapp tools  # 创建tools app,会在项目根目录下面创建tools目录
+# 创建tools app,会在项目根目录下面创建tools目录
+python manage.py startapp tools
 
+# 如果有新的app创建，并且要更新数据库，这时候需要执行下面的命令
+python manage.py migrate
 ```
