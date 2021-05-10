@@ -61,8 +61,10 @@ Button
 # 1.安装项目依赖
 # cd到chameleon项目下
 python -m pip install -r requirements
-# 启动服务，端口8080
-python manage.py runserver 8080
+# 运行服务
+# export DJANGO_ENV=devlopment 设置了环境变量,通过该环境变量，我们的配置使用了mysql数据库
+export DJANGO_ENV=devlopment && python manage.py runserver 8080
+
 
 # 如果有新的app创建，并且要更新数据库，这时候需要执行下面的命令
 python manage.py migrate
@@ -73,9 +75,6 @@ python manage.py migrate
 ```shell
 python manage.py startapp xxx  # 创建一个app 名字叫"xxx"
 
-# 运行服务
-# export DJANGO_ENV=devlopment 设置了环境变量,通过该环境变量，我们的配置使用了mysql数据库
-export DJANGO_ENV=devlopment && python manage.py runserver 8080
 
 # 创建tools app,会在项目根目录下面创建tools目录
 python manage.py startapp tools
