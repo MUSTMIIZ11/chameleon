@@ -81,4 +81,6 @@ python manage.py startapp tools
 
 # 如果有新的app创建，并且要更新数据库，这时候需要执行下面的命令
 python manage.py migrate
+
+管理员界面：http://127.0.0.1:8080/admin/   账号admin 密码admin
 ```
