@@ -56,13 +56,24 @@ Button
 
 - [ ] 时间不够这个page就删了吧要不... wait for version 2.0
 
+### How to develop 进行本地开发
+```shell
+# 1.安装项目依赖
+# cd到chameleon项目下
+python -m pip install -r requirements
+# 启动服务，端口8080
+python manage.py runserver 8080
 
+# 如果有新的app创建，并且要更新数据库，这时候需要执行下面的命令
+python manage.py migrate
+
+```
 
 ### Useful commands 好用的命令
 ```shell
 python manage.py startapp xxx  # 创建一个app 名字叫"xxx"
 python manage.py runserver 8080  # 运行服务
 
-python manage.py startapp tools  # 创建tools app
+python manage.py startapp tools  # 创建tools app,会在项目根目录下面创建tools目录
 
 ```

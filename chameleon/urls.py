@@ -22,7 +22,6 @@ from chameleon import settings
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html'),name='index'),
-    path('polls/', include('polls.urls')),
 
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL)
