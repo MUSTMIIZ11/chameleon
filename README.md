@@ -62,9 +62,11 @@ Button
 # cd到chameleon项目下
 python -m pip install -r requirements
 # 运行服务
-# export DJANGO_ENV=devlopment 设置了环境变量,通过该环境变量，我们的配置使用了mysql数据库
+# export DJANGO_ENV=devlopment 设置了环境变量,通过该环境变量，我们的配置使用了远程mysql数据库
 export DJANGO_ENV=devlopment && python manage.py runserver 8080
 
+# export DJANGO_ENV="" 将DJANGO_ENV置空，通过该环境变量，配置使用本地sqlite
+export DJANGO_ENV="" && python manage.py runserver 8080
 
 # 如果有新的app创建，并且要更新数据库，这时候需要执行下面的命令
 python manage.py migrate
