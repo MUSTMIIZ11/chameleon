@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # application name 自定义的app地方
     'welcome.apps.PollsConfig',
+    'community.apps.CommunityConfig',
+    'signup.apps.SignupConfig',
 
     # default apps
     'django.contrib.admin',

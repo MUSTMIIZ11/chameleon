@@ -108,5 +108,5 @@ python manage.py migrate
 | map_id      |int   | PRI  | 否       | 主键ID   |
 | map_name       | char(128)    |      | 否       | 图谱名称     |
 | map_url       | text    |      | 否       | 图谱链接     |
-| user_id      | varchar(255) |      | 是       | 图谱所属的用户ID     |
+| user_id      | int |      | 是       | 图谱所属的用户ID     |
 | createtime | datetime     |      | 是       | 创建时间 |
