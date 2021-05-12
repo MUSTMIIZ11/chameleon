@@ -24,5 +24,11 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html'),name='index'),
     path('welcome/', include('welcome.urls')),
     path('community/', include('community.urls')),
+<<<<<<< Updated upstream
+=======
+    path('tools/', TemplateView.as_view(template_name='tools.html'), name='tool'),
+    path('login/', include('signup.urls')),
+    # path('register/', TemplateView.as_view(template_name='register.html'), name='register'),
+>>>>>>> Stashed changes
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL)
