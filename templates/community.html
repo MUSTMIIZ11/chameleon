@@ -167,9 +167,19 @@
 
 {% block scripts %}
 <script>
+  var count = 0
   function like_change(){
     var demo = document.getElementsByClassName("ion ion-android-favorite-outline");
     demo[0].className="ion ion-android-favorite";
+    count += 1
+    if(count % 2 == 1){
+      var demo = document.getElementsByClassName("ion ion-android-favorite-outline");
+      demo[0].className="ion ion-android-favorite";
+    }else{
+      var demo = document.getElementsByClassName("ion ion-android-favorite");
+      demo[0].className="ion ion-android-favorite-outline";
+    }
+
   }
 </script>
 
