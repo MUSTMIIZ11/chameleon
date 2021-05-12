@@ -58,4 +58,23 @@ def simple_login(request):
 
 
 def signup(request):
+    if request.method == 'POST':
+        user_name = request.POST.get('username', "")
+        pass_word1 = request.POST.get('password1', "")
+        pass_word2 = request.POST.get('password2', "")
+        try:
+            usr = User.objects.get(username=user_name)
+        except Exception as e:
+            usr = None
+
+        if usr is not None:
+            return render(request, 'register.html', {"msg": "The user name already exist!"})
+        else:
+            if pass_word1 == pass_word2:
+                # create new users
+                print("create new user")
+                new_user = User.objects.create(username=user_name, password=pass_word1)
+                new_user.save()
+            else:
+                return render(request, 'register.html', {"msg": "Two password not the same, Please try again."})
     return render(request, 'register.html')
