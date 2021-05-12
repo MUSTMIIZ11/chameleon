@@ -32,7 +32,7 @@
                 <p>App</p>
                 <div>
                   <a href="{% static 'img/portfolio/app1.jpg' %}" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                  <a href="#" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
                   <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
@@ -47,6 +47,7 @@
                 <p>Web</p>
                 <div>
                   <a href="{% static 'img/portfolio/web3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
                   <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
@@ -61,6 +62,7 @@
                 <p>App</p>
                 <div>
                   <a href="{% static 'img/portfolio/app2.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
                   <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
@@ -75,6 +77,7 @@
                 <p>Card</p>
                 <div>
                   <a href="{% static 'img/portfolio/card2.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
                   <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
@@ -89,6 +92,7 @@
                 <p>Web</p>
                 <div>
                   <a href="{% static 'img/portfolio/web2.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
                   <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
@@ -103,6 +107,7 @@
                 <p>App</p>
                 <div>
                   <a href="{% static 'img/portfolio/app3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
                   <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
@@ -117,6 +122,7 @@
                 <p>Card</p>
                 <div>
                   <a href="{% static 'img/portfolio/card1.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
                   <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
@@ -131,6 +137,7 @@
                 <p>Card</p>
                 <div>
                   <a href="{% static 'img/portfolio/card3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Card 3" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
                   <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
@@ -145,6 +152,7 @@
                 <p>Web</p>
                 <div>
                   <a href="{% static 'img/portfolio/web1.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
                   <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
@@ -157,6 +165,12 @@
     </section><!-- #portfolio -->
 {% endblock %}
 
-{#{% block scripts %}#}
-{#    <!--<script src="{% static 'js/diagram.js' %}"></script>-->#}
-{#{% endblock scripts %}#}
+{% block scripts %}
+<script>
+  function like_change(){
+    var demo = document.getElementsByClassName("ion ion-android-favorite-outline");
+    demo[0].className="ion ion-android-favorite";
+  }
+</script>
+
+{% endblock scripts %}
