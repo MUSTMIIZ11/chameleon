@@ -28,7 +28,7 @@ def save_map(request):
     map_dir = os.path.join(BASE_DIR,'image_map')
     if not os.path.exists(map_dir):
         os.makedirs(map_dir)
-    with open(os.path.join(map_dir,str(map.id)+"-"+filename), 'wb') as f:
+    with open(os.path.join(map_dir,str(map.id)+"-"+filename) +'.svg', 'wb') as f:
         f.write(imgdata)
     return JsonResponse({
         'status':'ok',
