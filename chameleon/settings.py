@@ -135,3 +135,4 @@ if os.environ.get('DJANGO_ENV') == 'test':
 # AUTHENTICATION_BACKENDS = (
 #     'signup.views.CustomBackend',
 # )
+MAP_DIR = BASE_DIR + 'image_map'
