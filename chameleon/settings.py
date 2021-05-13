@@ -128,8 +128,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 # support dev overrides
 if os.environ.get('DJANGO_ENV') == 'devlopment':
     from chameleon.settings_dev import *
+if os.environ.get('DJANGO_ENV') == 'test':
+    from chameleon.settings_test import *
 
 # Rewrite the authentication
 # AUTHENTICATION_BACKENDS = (
 #     'signup.views.CustomBackend',
 # )
+MAP_DIR = BASE_DIR + 'image_map'

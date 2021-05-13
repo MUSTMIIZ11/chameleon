@@ -34,9 +34,10 @@
                 <h4><a href="#">App 1</a></h4>
                 <p>App</p>
                 <div>
-                  <a href="{% static 'img/portfolio/app1.jpg' %}" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                  <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                  <a href="{% static 'img/portfolio/app1.jpg' %}" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="More Details"><i class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" onclick="like_change()"><i class="ion ion-android-favorite-outline"></i></a>
+                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" title="Download"><i class="ion ion-android-open"></i></a>
+                  <!--onclick="show_qrcode()"-->
                 </div>
               </div>
             </div>
@@ -52,9 +53,9 @@
                 <h4><a href="#">Web 3</a></h4>
                 <p>Web</p>
                 <div>
-                  <a href="{% static 'img/portfolio/web3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="{% static 'img/portfolio/web3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="More Details"><i class="ion ion-eye"></i></a>
                   <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" onclick=show_qrcode() title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
             </div>
@@ -70,9 +71,9 @@
                 <h4><a href="#">App 2</a></h4>
                 <p>App</p>
                 <div>
-                  <a href="{% static 'img/portfolio/app2.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="{% static 'img/portfolio/app2.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="More Details"><i class="ion ion-eye"></i></a>
                   <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
             </div>
@@ -88,9 +89,9 @@
                 <h4><a href="#">Card 2</a></h4>
                 <p>Card</p>
                 <div>
-                  <a href="{% static 'img/portfolio/card2.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="{% static 'img/portfolio/card2.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="More Details"><i class="ion ion-eye"></i></a>
                   <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
             </div>
@@ -106,9 +107,9 @@
                 <h4><a href="#">Web 2</a></h4>
                 <p>Web</p>
                 <div>
-                  <a href="{% static 'img/portfolio/web2.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="{% static 'img/portfolio/web2.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="More Details"><i class="ion ion-eye"></i></a>
                   <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
             </div>
@@ -124,9 +125,9 @@
                 <h4><a href="#">App 3</a></h4>
                 <p>App</p>
                 <div>
-                  <a href="{% static 'img/portfolio/app3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="{% static 'img/portfolio/app3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="More Details"><i class="ion ion-eye"></i></a>
                   <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
             </div>
@@ -142,9 +143,9 @@
                 <h4><a href="#">Card 1</a></h4>
                 <p>Card</p>
                 <div>
-                  <a href="{% static 'img/portfolio/card1.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="{% static 'img/portfolio/card1.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="More Details"><i class="ion ion-eye"></i></a>
                   <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
             </div>
@@ -160,9 +161,9 @@
                 <h4><a href="#">Card 3</a></h4>
                 <p>Card</p>
                 <div>
-                  <a href="{% static 'img/portfolio/card3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Card 3" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="{% static 'img/portfolio/card3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Card 3" title="More Details"><i class="ion ion-eye"></i></a>
                   <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
             </div>
@@ -178,9 +179,9 @@
                 <h4><a href="#">Web 1</a></h4>
                 <p>Web</p>
                 <div>
-                  <a href="{% static 'img/portfolio/web1.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="{% static 'img/portfolio/web1.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="More Details"><i class="ion ion-eye"></i></a>
                   <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
             </div>
@@ -194,7 +195,9 @@
 
 {% block scripts %}
 <script>
+
   var count = 0
+  var num_like = 0
   function like_change(){
     var demo = document.getElementsByClassName("ion ion-android-favorite-outline");
     demo[0].className="ion ion-android-favorite";
@@ -202,12 +205,27 @@
     if(count % 2 == 1){
       var demo = document.getElementsByClassName("ion ion-android-favorite-outline");
       demo[0].className="ion ion-android-favorite";
+      num_like = 1;
     }else{
       var demo = document.getElementsByClassName("ion ion-android-favorite");
       demo[0].className="ion ion-android-favorite-outline";
+      num_like = 0;
     }
-
   }
 </script>
+<!--
+<script>
+  function show_qrcode(){
 
+  if(document.getElementById("img_div").style.display=="block"){
+    document.getElementById("img_div").style.display="none";
+  }
+  else{
+    document.getElementById("img_div").style.display="block";
+  }
+}
+</script>
+<div class="resume_msg baseBorder resume_notice resume_lang_name" notice-key="msg" for-key="name" for-value="html" contenteditable="true" onclick="show_qrcode()">Download Image</div>
+<div id="img_div" style="display:none;"><img src="{% static 'img/portfolio/card3.jpg' %}"  width="258" height="258"/></div>
+-->
 {% endblock scripts %}

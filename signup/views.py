@@ -35,7 +35,7 @@ from django.views.generic.base import View
 #             user = authenticate(username=user_name, password=pass_word)
 #             if user is not None:
 #                 login(request, user)
-#                 return render(request, "tools.html")
+#                 return render(request, "tool.html")
 #             else:
 #                 return render(request, 'login.html', {"msg": "用户名或密码错误!"})
 #         elif request.method == 'GET':
@@ -49,9 +49,9 @@ def simple_login(request):
         usr = User.objects.get(username=user_name)
         if usr.password == pass_word:
             request.session['is_login'] = True
-            request.session['user_id'] = usr.userid
+            request.session['user_id'] = usr.id
             request.session['user_name'] = usr.username
-            return render(request, 'tools.html')
+            return render(request, 'tool.html')
         else:
             return render(request, 'login.html', {"msg": "Invalid user or password!"})
     return render(request, 'login.html')
