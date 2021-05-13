@@ -8,9 +8,13 @@
       <div class="container">
 
         <header class="section-header center-block">
-          <h3 class="section-title">Welcome back!(欢迎 回来！)</h3>
+          <h3 class="section-title">Welcome back!</h3>
           <p>Sign in your account to keep design</p>
         </header>
+
+          {% if msg %}
+              <div class="alert alert-warning">{{ msg }}</div>
+          {% endif %}
 
         <div class="row clearfix">
         </div>
@@ -18,23 +22,27 @@
           <div class="col-md-4 column">
           </div>
           <div class="col-md-5 column center-block">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" method="POST">
               <div class="form-group form-group-lg">
                 <label class="col-sm-2 control-label" for="exampleInputEmail1">User/Email</label>
                 <div class="col-sm-10">
-                  <input type="email" class="form-control" placeholder="Email Address" id="exampleInputEmail1" />
+                    {% csrf_token %}
+{#                  <input type="email" class="form-control" placeholder="Email Address" id="exampleInputEmail1" />#}
+                    <input type="text" name='username' class="form-control" placeholder="User name" id="username" />
                 </div>
               </div>
               <div class="form-group form-group-lg">
                  <label class="col-sm-2 control-label" for="exampleInputPassword1">Password</label>
                  <div class="col-sm-10">
-                  <input type="password" class="form-control" placeholder="Password" id="exampleInputPassword1" />
+                     {% csrf_token %}
+                  <input type="password" name='password' class="form-control" placeholder="Password" id="password" />
                  </div>
               </div>
               <div class="col-sm-10">
                 <div class="checkbox">
-                  <button class="btn btn-large btn-info" style="float:right" type="button">Sign Up</button>
-                  <button class="btn btn-large btn-link" style="float:right" type="button">Forget password?</button>
+                  <button class="btn btn-large btn-info" style="float:right" type="submit">Sign in</button>
+{#                  <button class="btn btn-large btn-link" style="float:right" type="button">Forget password?</button>#}
+                    <button><a href="/login/register">Sign Up</a></button>
                 </div>
               </div>
 

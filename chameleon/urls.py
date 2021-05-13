@@ -26,5 +26,6 @@ urlpatterns = [
     path('community/', include('community.urls')),
     path('tools/', TemplateView.as_view(template_name='tools.html'),name='tool'),
     path('login/', include('signup.urls')),
+    # path('register/', include('signup.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL)

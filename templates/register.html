@@ -1,68 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Rapid Bootstrap Template</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
+<main id="main">
+{% extends "base.html" %}
 
-  <!-- Favicons -->
-  <link href="{%  static 'img/favicon.png' %}" rel="icon">
-  <link href="{%  static 'img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+ {% block title %}Login Page{% endblock %}
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
-
-  <!-- Bootstrap CSS File -->
-  <link href="{%  static 'lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-  <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: Rapid
-    Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
-</head>
-
-<body>
-  <!--==========================
-  Header
-  ============================-->
-  <header id="header">
-
-    <div class="container">
-
-      <div class="logo float-left">
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <h1 class="text-light"><a href="index.html" class="scrollto"><span>Chameleon</span></a></h1>
-        <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
-      </div>
-
-      <nav class="main-nav float-right d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="community.html">Community</a></li>
-          <li><a href="tools.html">Tools</a></li>
-          <li><a href="#services">Bookshelf</a></li>
-        </ul>
-      </nav><!-- .main-nav -->
-    </div>
-  </header><!-- #header -->
-
- 
-
-  <main id="main">
+ {% block content %}
 
     <!--==========================
       Services Section
@@ -74,28 +15,43 @@
           <h3 class="section-title">Register</h3>
         </header>
 
+          {% if msg %}
+               <div class="alert alert-warning">{{ msg }}</div>
+          {% endif %}
+
         <div class="row clearfix">
         </div>
         <div class="row">
           <div class="col-md-4 column">
           </div>
           <div class="col-md-5 column center-block">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" method="post">
               <div class="form-group form-group-lg">
-                <label class="col-sm-2 control-label" for="exampleInputEmail1">User/Email</label>
+                <label class="col-sm-2 control-label" for="exampleInputEmail1">User</label>
                 <div class="col-sm-10">
-                  <input type="email" class="form-control" placeholder="Email Address" id="exampleInputEmail1" />
+                    {% csrf_token %}
+                  <input type="text" name="username" class="form-control" placeholder="User name" id="username" />
                 </div>
               </div>
               <div class="form-group form-group-lg">
-                 <label class="col-sm-2 control-label" for="exampleInputPassword1">Password</label>
+                 <label class="col-sm-2 control-label" for="InputPassword1">Password</label>
                  <div class="col-sm-10">
-                  <input type="password" class="form-control" placeholder="Password" id="exampleInputPassword1" />
+                     {% csrf_token %}
+                  <input type="password" name="password1" class="form-control" placeholder="Password" id="Password1" />
                  </div>
               </div>
+
+                <div class="form-group form-group-lg">
+                  <label class="col-sm-4 control-label" for="InputPassword2">Same password</label>
+                  <div class="col-sm-10">
+                      {% csrf_token %}
+                   <input type="password" name="password2" class="form-control" placeholder="Repeat Password" id="Password2" />
+                  </div>
+               </div>
+
               <div class="col-sm-10">
                 <div class="checkbox"> 
-                  <button class="btn btn-large btn-info" style="float:right" type="button">Register</button>
+                  <button class="btn btn-large btn-info" style="float:right" type="submit">Register</button>
                 </div>
               </div>
               
@@ -114,44 +70,43 @@
   <!--==========================
     Footer
   ============================-->
-  <footer id="footer" class="section-bg">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong>Chameleon</strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
-        -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- #footer -->
-
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+{#  <footer id="footer" class="section-bg">#}
+{#    <div class="container">#}
+{#      <div class="copyright">#}
+{#        &copy; Copyright <strong>Chameleon</strong>. All Rights Reserved#}
+{#      </div>#}
+{#      <div class="credits">#}
+{#        <!--#}
+{#          All the links in the footer should remain intact.#}
+{#          You can delete the links only if you purchased the pro version.#}
+{#          Licensing information: https://bootstrapmade.com/license/#}
+{#          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid#}
+{#        -->#}
+{#        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>#}
+{#      </div>#}
+{#    </div>#}
+{#  </footer><!-- #footer -->#}
+{##}
+{#  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>#}
   <!-- Uncomment below i you want to use a preloader -->
   <!-- <div id="preloader"></div> -->
 
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/mobile-nav/mobile-nav.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/waypoints/waypoints.min.js"></script>
-  <script src="lib/counterup/counterup.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/isotope/isotope.pkgd.min.js"></script>
-  <script src="lib/lightbox/js/lightbox.min.js"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+{#  <!-- JavaScript Libraries -->#}
+{#  <script src="lib/jquery/jquery.min.js"></script>#}
+{#  <script src="lib/jquery/jquery-migrate.min.js"></script>#}
+{#  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>#}
+{#  <script src="lib/easing/easing.min.js"></script>#}
+{#  <script src="lib/mobile-nav/mobile-nav.js"></script>#}
+{#  <script src="lib/wow/wow.min.js"></script>#}
+{#  <script src="lib/waypoints/waypoints.min.js"></script>#}
+{#  <script src="lib/counterup/counterup.min.js"></script>#}
+{#  <script src="lib/owlcarousel/owl.carousel.min.js"></script>#}
+{#  <script src="lib/isotope/isotope.pkgd.min.js"></script>#}
+{#  <script src="lib/lightbox/js/lightbox.min.js"></script>#}
+{#  <!-- Contact Form JavaScript File -->#}
+{#  <script src="contactform/contactform.js"></script>#}
+{##}
+{#  <!-- Template Main Javascript File -->#}
+{#  <script src="js/main.js"></script>#}
 
-  <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
-
-</body>
-</html>
+{% endblock %}
