@@ -1,4 +1,4 @@
 Django
-mysqlclient
+pymysql
 coverage
 qrcode
