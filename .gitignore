@@ -138,3 +138,5 @@ cython_debug/
 
 .idea/
 .DS_Store
+image_map
+db_test.sqlite3
