@@ -50,11 +50,11 @@ jobs:
 #          name: codecov-umbrella
 #          fail_ci_if_error: true
 #          verbose: true
-      - name: Docker build and push docker hub
-        uses: docker/build-push-action@v1
-        with:
-          username: ${{ secrets.DOCKERID }}
-          password: ${{ secrets.DOCKERPASSWORD }}
-          registry: myregistry
-          repository: myorg/myrepo
-          tags: v1
+      - uses: actions/checkout@v1
+      - name: docker build and push aliyun
+        run: |
+          sudo docker login --username=15958117153 registry.cn-shenzhen.aliyuncs.com --password=chaiyunhao54
+          sudo docker build -t testimage:test_v1 .
+          sudo docker tag testimage:test_v1 registry.cn-shenzhen.aliyuncs.com/asd3583081/test1:test_v1
+          sudo docker push registry.cn-beijing.aliyuncs.com/asd3583081/test1:test_v1
+
