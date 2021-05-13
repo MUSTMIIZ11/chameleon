@@ -76,7 +76,8 @@ python manage.py migrate
 export DJANGO_ENV="test" && python ./manage.py test
 # Converage test command
 export DJANGO_ENV="test" && coverage run --source='.' manage.py test&& coverage xml
-
+# 本地查看coverage报告的命令
+coverage report -m
 ```
 
 ### Useful commands 好用的命令
