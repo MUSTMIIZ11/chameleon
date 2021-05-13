@@ -56,5 +56,5 @@ jobs:
           sudo docker login --username=15958117153 registry.cn-shenzhen.aliyuncs.com --password=chaiyunhao54
           sudo docker build -t testimage:test_v1 .
           sudo docker tag testimage:test_v1 registry.cn-shenzhen.aliyuncs.com/asd3583081/test1:test_v1
-          sudo docker push registry.cn-beijing.aliyuncs.com/asd3583081/test1:test_v1
+          sudo docker push registry.cn-shenzhen.aliyuncs.com/asd3583081/test1:test_v1
 
