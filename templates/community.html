@@ -55,7 +55,7 @@
                 <div>
                   <a href="{% static 'img/portfolio/web3.jpg' %}" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="More Details"><i class="ion ion-eye"></i></a>
                   <a href="#" class="link-details" onclick=like_change()><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" onclick=show_qrcode() title="More Details"><i class="ion ion-android-open"></i></a>
+                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
             </div>
@@ -213,6 +213,7 @@
     }
   }
 </script>
+
 <!--
 <script>
   function show_qrcode(){
