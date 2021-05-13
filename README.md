@@ -118,3 +118,15 @@ python manage.py migrate
 | user_id      | int |      | 是       | 图谱所属的用户ID     
 | like | int |    | 否 | 图谱获得的点赞数
 | createtime | datetime     |      | 是       | 创建时间 |
+
+###TroubleShooting
+```shell
+遇到数据库表冲突的问题解决方案：
+mysql -uroot -p -h 159.75.82.228
+#password: chameleon
+DELETE FROM django_migrations WHERE app = 'community'
+DROP table communicy;
+python manage.py makemigrations
+python manage.py migrate;
+
+```
