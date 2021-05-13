@@ -1,7 +1,8 @@
 #  Chameleon: Course Project of MIIZ11 Software Engineering 
 
 ### Owner: Lulin Deng, Kan Ni, Zhiyao Xie 
-
+![example workflow](https://github.com/MUSTMIIZ11/chameleon/actions/workflows/main.yml/badge.svg)
+[![codecov](https://codecov.io/gh/MUSTMIIZ11/chameleon/branch/main/graph/badge.svg?token=9X73F77MZF)](https://codecov.io/gh/MUSTMIIZ11/chameleon)
 ***
 It is a website of create your own character graph in books. Currently under active development...
 
@@ -71,6 +72,12 @@ export DJANGO_ENV="" && python manage.py runserver 8080
 # 如果有新的app创建，并且要更新数据库，这时候需要执行下面的命令
 python manage.py migrate
 
+# 进行单元测试 Unit test command
+export DJANGO_ENV="test" && python ./manage.py test
+# Converage test command
+export DJANGO_ENV="test" && coverage run --source='.' manage.py test&& coverage xml
+# 本地查看coverage报告的命令
+coverage report -m
 ```
 
 ### Useful commands 好用的命令
@@ -95,7 +102,7 @@ python manage.py migrate
 
 | 列名       | 类型         | KEY  | 可否为空 | 注释     |
 | ---------- | ------------ | ---- | -------- | -------- |
-| user_id      | int   | PRIMARY KEY  | 否       | 主键ID   |
+| id      | int   | PRIMARY KEY  | 否       | 自增主键ID   |
 | username       | char(128)    |      | 否       | 用户名     |
 | password      | varchar(255) |      | 否      | 密码     |
 | createtime | datetime     |      | 是       | 创建时间 |
@@ -105,8 +112,21 @@ python manage.py migrate
 
 | 列名       | 类型         | KEY  | 可否为空 | 注释     |
 | ---------- | ------------ | ---- | -------- | -------- |
-| map_id      |int   | PRI  | 否       | 主键ID   |
+| id      |int   | PRI  | 否       | 自增主键ID   |
 | map_name       | char(128)    |      | 否       | 图谱名称     |
 | map_url       | text    |      | 否       | 图谱链接     |
-| user_id      | int |      | 是       | 图谱所属的用户ID     |
+| user_id      | int |      | 是       | 图谱所属的用户ID     
+| like | int |    | 否 | 图谱获得的点赞数
 | createtime | datetime     |      | 是       | 创建时间 |
+
+###TroubleShooting
+```shell
+遇到数据库表冲突的问题解决方案：
+mysql -uroot -p -h 159.75.82.228
+#password: chameleon
+DELETE FROM django_migrations WHERE app = 'community'
+DROP table communicy;
+python manage.py makemigrations
+python manage.py migrate;
+
+```

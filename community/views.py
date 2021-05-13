@@ -1,11 +1,14 @@
+import base64
+import os
+from io import BytesIO
+
+import qrcode
+from django.http import HttpResponse
 from django.shortcuts import render
 
-# Create your views here.
-
-from django.http import HttpResponse
+from chameleon.settings import MAP_DIR
+from .models import Map
 import qrcode
-from io import BytesIO
-import os
 from chameleon import settings
 
 
@@ -32,3 +35,12 @@ def makeqrcode(request,data):
     return response
 
 
+def get_all_maps(limit=None):
+    dir = MAP_DIR
+    maps = []
+    for map_filename in os.path.dirname(dir):
+        with open(map_filename, 'wb') as f:
+            map_data = f.read()
+            map_data = base64.b64decode(map_data)
+        maps.append(bytes('data:image/svg+xml;base64,') + map_data)
+    return maps
