@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <img src="{% static 'img/portfolio/card3.jpg' %}" class="img-fluid" id="download_img" />
+</body>
+</html>
+<script>
+
+    function download_Img(filename, content_url) {
+        var a = document.createElement('a');
+
+        a.style = "display: none";
+        a.href = content_url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+
+        setTimeout(function () {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(content_url);
+        }, 5);
+    }
+</script>
+<script>
+    document.getElementById('download_img').onclick = function(){
+        var img_name = "card3.jpg";
+        var data = document.getElementById('download_img').src;
+        download_Img(img_name, data);
+    }
+</script>

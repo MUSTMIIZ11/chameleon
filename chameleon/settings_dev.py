@@ -1,6 +1,6 @@
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+URL = "159.75.82.228"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

@@ -12,9 +12,15 @@ from chameleon import settings
 def index(request):
     return render(request, 'community.html')
 
+def download(request):
+    return render(request, 'download.html')
 
-def makeqrcode(request, data):
-    url = "http://www.test.com"
+def makeqrcode(request,data):
+
+    url = os.path.join(settings.URL, "community/download")
+    print(url)
+    print(request)
+    # url = os.path.join(settings.BASE_DIR, "static/img/portfolio/card3.jpg")
     img = qrcode.make(url)      #传入网址计算出二维码图片字节数据
     buf = BytesIO()                                 #创建一个BytesIO临时保存生成图片数据
     img.save(buf)                                   #将图片字节数据放到BytesIO临时保存
