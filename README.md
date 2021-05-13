@@ -1,6 +1,7 @@
 #  Chameleon: Course Project of MIIZ11 Software Engineering 
 
 ### Owner: Lulin Deng, Kan Ni, Zhiyao Xie 
+![example workflow](https://github.com/MUSTMIIZ11/chameleon/actions/workflows/main.yml/badge.svg)
 
 ***
 It is a website of create your own character graph in books. Currently under active development...
