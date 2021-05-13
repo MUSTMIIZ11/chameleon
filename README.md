@@ -72,8 +72,11 @@ export DJANGO_ENV="" && python manage.py runserver 8080
 # 如果有新的app创建，并且要更新数据库，这时候需要执行下面的命令
 python manage.py migrate
 
-# 进行单元测试
+# 进行单元测试 Unit test command
 export DJANGO_ENV="test" && python ./manage.py test
+# Converage test command
+export DJANGO_ENV="test" && coverage run --source='.' manage.py test&& coverage xml
+
 ```
 
 ### Useful commands 好用的命令
