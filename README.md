@@ -71,6 +71,8 @@ export DJANGO_ENV="" && python manage.py runserver 8080
 # 如果有新的app创建，并且要更新数据库，这时候需要执行下面的命令
 python manage.py migrate
 
+# 进行单元测试
+export DJANGO_ENV="test" && python ./manage.py test
 ```
 
 ### Useful commands 好用的命令
@@ -95,7 +97,7 @@ python manage.py migrate
 
 | 列名       | 类型         | KEY  | 可否为空 | 注释     |
 | ---------- | ------------ | ---- | -------- | -------- |
-| user_id      | int   | PRIMARY KEY  | 否       | 主键ID   |
+| id      | int   | PRIMARY KEY  | 否       | 自增主键ID   |
 | username       | char(128)    |      | 否       | 用户名     |
 | password      | varchar(255) |      | 否      | 密码     |
 | createtime | datetime     |      | 是       | 创建时间 |
@@ -105,7 +107,7 @@ python manage.py migrate
 
 | 列名       | 类型         | KEY  | 可否为空 | 注释     |
 | ---------- | ------------ | ---- | -------- | -------- |
-| map_id      |int   | PRI  | 否       | 主键ID   |
+| id      |int   | PRI  | 否       | 自增主键ID   |
 | map_name       | char(128)    |      | 否       | 图谱名称     |
 | map_url       | text    |      | 否       | 图谱链接     |
 | user_id      | int |      | 是       | 图谱所属的用户ID     |
