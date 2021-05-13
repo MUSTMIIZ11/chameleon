@@ -33,7 +33,7 @@ jobs:
           architecture: 'x64'
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: Hello chameleon test
+        run: echo Hello chameleon test
       - name: Install Dependencies
         run: |
           pip install -r requirements
