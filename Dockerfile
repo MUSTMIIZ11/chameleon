@@ -5,3 +5,4 @@ WORKDIR /code
 COPY requirements.txt /code/
 RUN pip install -r requirements
 COPY . /code/
+RUN cd code && export DJANGO_ENV=devlopment && python manage.py runserver 8080
