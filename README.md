@@ -2,7 +2,7 @@
 
 ### Owner: Lulin Deng, Kan Ni, Zhiyao Xie 
 ![example workflow](https://github.com/MUSTMIIZ11/chameleon/actions/workflows/main.yml/badge.svg)
-
+[![codecov](https://codecov.io/gh/MUSTMIIZ11/chameleon/branch/main/graph/badge.svg?token=9X73F77MZF)](https://codecov.io/gh/MUSTMIIZ11/chameleon)
 ***
 It is a website of create your own character graph in books. Currently under active development...
 
@@ -72,8 +72,11 @@ export DJANGO_ENV="" && python manage.py runserver 8080
 # 如果有新的app创建，并且要更新数据库，这时候需要执行下面的命令
 python manage.py migrate
 
-# 进行单元测试
+# 进行单元测试 Unit test command
 export DJANGO_ENV="test" && python ./manage.py test
+# Converage test command
+export DJANGO_ENV="test" && coverage run --source='.' manage.py test&& coverage xml
+
 ```
 
 ### Useful commands 好用的命令

@@ -40,4 +40,13 @@ jobs:
       - name: Run Tests
         run: |
           export DJANGO_ENV="test" && python ./manage.py test
-
+          export DJANGO_ENV="test" && coverage run --source='.' manage.py test&& coverage xml
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: b91f51ad-bb6f-464d-bfe0-65b82282f7a5
+          files: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
+          verbose: true
