@@ -2,7 +2,7 @@
 
 ### Owner: Lulin Deng, Kan Ni, Zhiyao Xie 
 ![example workflow](https://github.com/MUSTMIIZ11/chameleon/actions/workflows/main.yml/badge.svg)
-
+[![codecov](https://codecov.io/gh/MUSTMIIZ11/chameleon/branch/main/graph/badge.svg?token=9X73F77MZF)](https://codecov.io/gh/MUSTMIIZ11/chameleon)
 ***
 It is a website of create your own character graph in books. Currently under active development...
 
