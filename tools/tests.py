@@ -12,5 +12,6 @@ class ToolTestCase(TestCase):
 
     def test_map_create(self):
         Map.objects.create(map_name='map', map_url='', user_id=self.user.id)
-
+        maps = Map.objects.filter(user_id=self.user.id)
+        self.assertEqual(len(maps),1)
 
