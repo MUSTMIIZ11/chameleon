@@ -50,3 +50,11 @@ jobs:
           name: codecov-umbrella
           fail_ci_if_error: true
           verbose: true
+      - name: Docker build and push docker hub
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKERID }}
+          password: ${{ secrets.DOCKERPASSWORD }}
+          registry: myregistry
+          repository: myorg/myrepo
+          tags: v1
