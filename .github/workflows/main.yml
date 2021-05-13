@@ -37,10 +37,10 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r requirements
-      - name: Run Tests
-        run: |
-          export DJANGO_ENV="test" && python ./manage.py test
-          export DJANGO_ENV="test" && coverage run --source='.' manage.py test&& coverage xml
+      #- name: Run Tests
+      #  run: |
+      #    export DJANGO_ENV="test" && python ./manage.py test
+      #    export DJANGO_ENV="test" && coverage run --source='.' manage.py test&& coverage xml
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
