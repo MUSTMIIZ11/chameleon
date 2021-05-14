@@ -24,7 +24,7 @@ def save_map(request):
         user_id = -1
     imgdata = base64.b64decode(imgstring)
     filename = str(user_id) +'-' + map_name
-    map = Map.objects.create(map_name=map_name,user_id=user_id,map_url='/'+filename)
+    map = Map.objects.create(map_name=map_name,user_id=user_id,map_url=filename)
     map_dir = os.path.join(BASE_DIR,'image_map')
     if not os.path.exists(map_dir):
         os.makedirs(map_dir)
