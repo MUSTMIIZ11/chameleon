@@ -17,11 +17,13 @@ def index(request):
     display_map_list = dict()
     for i in range(9):
         display_map_list['map' + str(i)] = ordered_map[i].map_url
-    print(display_map_list)
+    # print(display_map_list)
     return render(request, 'community.html', display_map_list)
+
 
 def download(request):
     return render(request, 'download.html')
+
 
 def makeqrcode(request,data):
 

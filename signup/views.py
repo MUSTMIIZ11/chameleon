@@ -75,6 +75,7 @@ def signup(request):
                 print("create new user")
                 new_user = User.objects.create(username=user_name, password=pass_word1)
                 new_user.save()
+                return render(request, 'index.html')
             else:
                 return render(request, 'register.html', {"msg": "Two password not the same, Please try again."})
     return render(request, 'register.html')
