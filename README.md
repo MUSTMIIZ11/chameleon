@@ -74,6 +74,8 @@ python manage.py migrate
 
 # 进行单元测试 Unit test command
 export DJANGO_ENV="test" && python ./manage.py test
+export DJANGO_ENV="test" && python ./manage.py test tools
+
 # Converage test command
 export DJANGO_ENV="test" && coverage run --source='.' manage.py test&& coverage xml
 # 本地查看coverage报告的命令
