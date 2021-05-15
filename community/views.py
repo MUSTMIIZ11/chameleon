@@ -30,16 +30,19 @@ def index(request):
         temp = dict()
 
         if '.svg' in map.map_url:
-            map_dir = os.path.join(BASE_DIR, 'static/')
-            filename = os.path.join(map_dir ,map.map_url)
-            # # 为了兼容win系统
-            # if sys.platform.startswith('win'):
-            #     filename=filename.replace('/','\\')
-            # print(filename)
-            with open(filename, 'rb') as f:
-                map_data = f.read()
-                map_data = base64.b64encode(map_data)
-                temp['map_src'] = 'data:image/svg+xml;base64,' + map_data.decode()
+            try:
+                map_dir = os.path.join(BASE_DIR, 'static/')
+                filename = os.path.join(map_dir ,map.map_url)
+                # # 为了兼容win系统
+                # if sys.platform.startswith('win'):
+                #     filename=filename.replace('/','\\')
+                # print(filename)
+                with open(filename, 'rb') as f:
+                    map_data = f.read()
+                    map_data = base64.b64encode(map_data)
+                    temp['map_src'] = 'data:image/svg+xml;base64,' + map_data.decode()
+            except:
+                continue
         temp['map'] = ordered_map[i].map_url
         try:
             temp['map_user'] = User.objects.get(id=ordered_map[i].user_id).username
