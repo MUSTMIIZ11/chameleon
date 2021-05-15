@@ -15,12 +15,31 @@ def index(request):
 
 
 @csrf_exempt
+def check(request):
+    user_id = request.POST['user_id']
+    print(f"the user id {user_id}")
+    # if user_id == -1:
+    #     return
+    return JsonResponse({
+        "user_id": user_id
+    })
+    # if user_id != -1:
+    #     print("testtttt")
+    #     return render(request, 'login.html')
+    # else:
+    #     print("toollllllll")
+    #     # Not login
+    #     return render(request, 'tool.html')
+
+
+
+@csrf_exempt
 def save_map(request):
     # Save map from diagrams.net
     # map格式  mapId-userId-mapName
     imgstring = request.POST['map_data']
     map_name = request.POST['map_name']
-    user_id =  request.POST['user_id']
+    user_id = request.POST['user_id']
     try:
         user_id = int(user_id)
     except:

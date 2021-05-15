@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from .models import User
+from django.http import HttpResponseRedirect
+from django.contrib import redirects
 
 # def index(request):
 #     return render(request, 'login.html')
@@ -48,10 +50,15 @@ def simple_login(request):
         pass_word = request.POST.get('password', "")
         usr = User.objects.get(username=user_name)
         if usr.password == pass_word:
-            request.session['is_login'] = True
-            request.session['user_id'] = usr.id
-            request.session['user_name'] = usr.username
-            return render(request, 'tool.html')
+            # request.session['is_login'] = True
+            # request.session['user_id'] = usr.id
+            # request.session['user_name'] = usr.username
+            # return render(request, 'index.html', {"msg": "You have successfully login!"})
+            ret = HttpResponseRedirect('/welcome/')
+            ret.set_cookie('is_login', True)
+            ret.set_cookie('user_id', usr.id)
+            ret.set_cookie('user_name', usr.username)
+            return ret
         else:
             return render(request, 'login.html', {"msg": "Invalid user or password!"})
     return render(request, 'login.html')

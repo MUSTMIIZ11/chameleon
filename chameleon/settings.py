@@ -136,3 +136,5 @@ if os.environ.get('DJANGO_ENV') == 'test':
 #     'signup.views.CustomBackend',
 # )
 MAP_DIR = BASE_DIR + 'image_map'
+
+APPEND_SLASH = False
