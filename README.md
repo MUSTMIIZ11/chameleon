@@ -12,35 +12,35 @@ TODO LIST:
 
 Button
 
-- [ ] Logo: 主页上的logo跳转主页(index.html)
+- [x] Logo: 主页上的logo跳转主页(index.html)
 
-- [ ] community: 主页community主页跳转到community.html
+- [x] community: 主页community主页跳转到community.html
 
-- [ ] tools: tools按钮跳转login.html
+- [x] tools: tools按钮跳转login.html
 
 - [ ] bookshelf: 跳转顺序：bookshelf.html->login.html->bookshelf.html
 
-- [ ] get start: 跳转顺序：login.html —> community.html 
+- [x] get start: 跳转顺序：login.html —> community.html 
 
 
 ### Login page
 
 Button
 
-- [ ] Sign in：数据库记录三条登陆信息
+- [x] Sign in：数据库记录三条登陆信息
 
-- [ ] Forget password：不能忘记密码（不是
+- [x] Sign up:注册
 
 
 ### Community page
 
 Button
 
-- [ ] Logo: 跳转到index.html
+- [x] Logo: 跳转到index.html
 
-- [ ] community: 跳转到community.html
+- [x] community: 跳转到community.html
 
-- [ ] tools: 跳转顺序：login.html —> tools.thml
+- [x] tools: 跳转顺序：login.html —> tools.thml
 
 - [ ] bookshelf: 跳转顺序login.html —> bookshelf.html 
 
@@ -49,7 +49,7 @@ Button
 
 - [ ] upload botton: 点击upload，作品发布到社区
 
-- [ ] save: 点击save，存到本地
+- [x] save: 点击save，存到本地
 
 - [ ] share：点击share，生成二维码，扫码可以下载到手机(方便pre的时候show一下
 
@@ -128,7 +128,7 @@ JENKINS: http://159.75.82.228:8080/job/chameleon/
 | like | int |    | 否 | 图谱获得的点赞数
 | createtime | datetime     |      | 是       | 创建时间 |
 
-###TroubleShooting
+### TroubleShooting
 ```shell
 遇到数据库表冲突的问题解决方案：
 mysql -uroot -p -h 159.75.82.228
