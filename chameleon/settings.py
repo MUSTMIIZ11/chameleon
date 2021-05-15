@@ -138,3 +138,5 @@ if os.environ.get('DJANGO_ENV') == 'test':
 MAP_DIR = BASE_DIR + 'image_map'
 
 APPEND_SLASH = False
+
+ALLOWED_HOSTS = ['159.75.82.228', 'localhost', '127.0.0.1']
