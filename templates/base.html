@@ -107,7 +107,7 @@
         console.log(a)
         var user_id = getCookie('user_id') || "-1";
         console.log(user_id)
-        if (getCookie('user_id') == -1) {
+        if (getCookie('user_id') === undefined) {
             console.log("not login")
             window.location.href = '/login/';
         } else {
