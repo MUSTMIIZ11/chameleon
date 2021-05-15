@@ -40,9 +40,10 @@
                 <div>
                     {% with ""|add:i.map as static_v %}
                   <a href="{% static static_v %}" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="More Details"><i class="ion ion-eye"></i></a>
-                    {% endwith %}
                   <a href="#" class="link-details" onclick="like_change()"><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="{% url 'qrcode' map0 %}" data-lightbox="portfolio" class="link-details" title="Download"><i class="ion ion-android-open"></i></a>
+                  <a href="{% url 'qrcode' static_v %}" data-lightbox="portfolio" class="link-details" title="Download"><i class="ion ion-android-open"></i></a>
+                    {% endwith %}
+
                   <!--onclick="show_qrcode()"-->
                 </div>
               </div>
