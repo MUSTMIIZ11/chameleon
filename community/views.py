@@ -23,11 +23,14 @@ def index(request):
     #     # display_map_list['map' + str(i) + 'user'] = User.objects.get(id=ordered_map[i].user_id).username
     display_map_dict = dict()
     display_map_dict['map_user_all'] = list()
+    map_count = 0
     print(display_map_dict)
     for i in range(9):
         temp = dict()
         temp['map'] = ordered_map[i].map_url
         temp['map_user'] = User.objects.get(id=ordered_map[i].user_id).username
+        temp['map_count'] = map_count
+        map_count += 1
         display_map_dict['map_user_all'].append(temp)
     print(display_map_dict)
     return render(request, 'community.html', display_map_dict)
