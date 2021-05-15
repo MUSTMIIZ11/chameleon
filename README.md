@@ -74,6 +74,8 @@ python manage.py migrate
 
 # 进行单元测试 Unit test command
 export DJANGO_ENV="test" && python ./manage.py test
+export DJANGO_ENV="test" && python ./manage.py test tools
+
 # Converage test command
 export DJANGO_ENV="test" && coverage run --source='.' manage.py test&& coverage xml
 # 本地查看coverage报告的命令
@@ -92,6 +94,13 @@ python manage.py startapp tools
 python manage.py migrate
 
 管理员界面：http://127.0.0.1:8080/admin/   账号admin 密码admin
+
+Project Online Address: http://159.75.82.228:9090/
+JENKINS: http://159.75.82.228:8080/job/chameleon/
+
+# docker commands
+# docker run --name mysql -v mysql-volume:/var/lib/mysql -e MYSQL_DATABASE=chameleon_db_dev -e MYSQL_ROOT_PASSWORD=chameleon -p 3306:3306 -d mysql
+# sudo docker run --name "chameleonservice" -p 9090:9090 -d "chameleon"
 ```
 
 # test_new_brach_xzy
@@ -128,5 +137,7 @@ DELETE FROM django_migrations WHERE app = 'community'
 DROP table communicy;
 python manage.py makemigrations
 python manage.py migrate;
-
 ```
+
+
+### Project Workflow

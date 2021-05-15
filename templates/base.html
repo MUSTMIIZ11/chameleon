@@ -59,9 +59,10 @@
 
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
-                <li><a href="/community">Community</a></li>
-                <li><a href="/tool">Tool</a></li>
-                <li><a href="/login">Bookshelf</a></li>
+                <li><a href="/community/">Community</a></li>
+                <li><a href="#" onclick="check_cookie()">Tool</a></li>
+{#                <li><a href="/tool">Tool</a></li>#}
+                <li><a href="/login/">Login</a></li>
             </ul>
         </nav><!-- .main-nav -->
     </div>
@@ -96,3 +97,51 @@
 
 </body>
 </html>
+
+
+
+{% load static %}
+<script src={% static '/js/diagram.js'%}></script>
+<script>
+    function check_cookie(){
+        var a = getCookie(user_id)
+        console.log(a)
+        var user_id = getCookie('user_id') || "-1";
+        console.log(user_id)
+        if (getCookie('user_id') == -1){
+            console.log("not login")
+            window.location.href = '/login/';
+        }
+        else{
+            console.log("login")
+            window.location.href = '/tool/';
+        }
+        //var payload = {
+        //"user_id": user_id,
+        //};
+        {#$.ajax({#}
+        {#    url: '',#}
+        {#    type: 'POST',#}
+        {#    data: payload,#}
+        {#    dataType: 'json',#}
+        {#    success: function (data) {#}
+        {#        alert("test");#}
+        {#        console.log("test")#}
+        {#        console.log(data['user_id'])#}
+        {#        if (data['user_id'] == -1){#}
+                    {#window.location('/login/');#}
+        {#            window.location.href = '/login/';#}
+        {#        }#}
+        {#        else{#}
+        {#            window.location.href = '/welcome/';#}
+        {#        }#}
+        {#    },#}
+        {#    error: function (r, s, e) {#}
+        {#        alert("Unexpected error:" + e);#}
+        {#        console.log(r);#}
+        {#        console.log(s);#}
+        {#        console.log(e);#}
+        {#    }#}
+        //
+    }
+</script>

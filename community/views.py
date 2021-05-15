@@ -8,17 +8,30 @@ from django.shortcuts import render
 
 from chameleon.settings import MAP_DIR
 from .models import Map
+from signup.models import User
 import qrcode
 from chameleon import settings
 
 
 def index(request):
+    # sort the map data based on the 'like' attribute.
+    # Select 9 map which have most likes.
     ordered_map = Map.objects.order_by('-like').all()[:9]
-    display_map_list = dict()
+    # display_map_list = dict()
+    # for i in range(9):
+    #     display_map_list['map' + str(i)] = ordered_map[i].map_url
+    #     # display_map_list['map' + str(i) + 'user'] = User.objects.get(id=ordered_map[i].user_id).username
+    display_map_dict = dict()
+    display_map_dict['map_user_all'] = list()
+    print(display_map_dict)
     for i in range(9):
-        display_map_list['map' + str(i)] = ordered_map[i].map_url
-    print(display_map_list)
-    return render(request, 'community.html', display_map_list)
+        temp = dict()
+        temp['map'] = ordered_map[i].map_url
+        temp['map_user'] = User.objects.get(id=ordered_map[i].user_id).username
+        display_map_dict['map_user_all'].append(temp)
+    print(display_map_dict)
+    return render(request, 'community.html', display_map_dict)
+
 
 
 def download(request):

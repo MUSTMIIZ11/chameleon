@@ -136,11 +136,11 @@ function getCookie(cookieName){
           cookieSplit=[],
           // 以分号（;）分组
           cookieArr=document.cookie.split(";");
-    for(var i=0,len=cookieArr.length;i<len;i++)
+    for(var i=0,len=cookieArr.length; i<len; i++)
         if(cookieArr[i]) {
             // 以等号（=）分组
             cookieSplit=cookieArr[i].split("=");
-            cookieObj[cookieSplit[0]]=cookieSplit[1];
+            cookieObj[cookieSplit[0].trim()]=cookieSplit[1].trim();
         }
     return cookieObj[cookieName];
 }
