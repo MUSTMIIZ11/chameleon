@@ -22,6 +22,52 @@
 </body>
 </html>
 <script>
+    function svgString2Image(svgData, width, height, format, callback) {
+        // set default for format parameter
+        format = format ? format : 'png';
+        // SVG data URL from SVG string
+        {#var svgData = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgString)));#}
+        // create canvas in memory(not in DOM)
+        var canvas = document.createElement('canvas');
+        // get canvas context for drawing on canvas
+        var context = canvas.getContext('2d');
+        // set canvas size
+        canvas.width = width;
+        canvas.height = height;
+        // create image in memory(not in DOM)
+        var image = new Image();
+        // later when image loads run this
+        image.onload = function () { // async (happens later)
+            // clear canvas
+            context.clearRect(0, 0, width, height);
+            // draw image with SVG data to canvas
+            context.drawImage(image, 0, 0, width, height);
+            // snapshot canvas as png
+            var pngData = canvas.toDataURL('image/' + format);
+            // pass png data URL to callback
+            console.log(pngData)
+            callback(pngData);
+            image.src = "data:image/png;base64,"+pngData;
+            var img    = canvas.toDataURL("image/png");
+        var node = document.getElementById('download_img');
+         node.src=img
+            console.log(img)
+
+        }; // end async
+        // start loading SVG data into in memory image
+        var node = document.getElementById('download_img');
+        image.src = svgData;
+
+
+    }
+
+    window.onload = function () {
+        var node = document.getElementById('download_img');
+        svgString2Image(node.src, 800, 600, 'png', /* callback that gets png data URL passed to it */function (pngData) {
+            // pngData is base64 png string
+        });
+        console.log('onload')
+    }
 
     function download_Img(filename, content_url) {
         var a = document.createElement("a");
@@ -42,7 +88,7 @@
     document.getElementById("download_img").onclick = function () {
         var img_name = "download.jpg";
         var data = document.getElementById("download_img").src;
-        alert(data);
+        {#alert(data);#}
         download_Img(img_name, data);
     }
 </script>
