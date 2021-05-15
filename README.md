@@ -98,6 +98,7 @@ python manage.py migrate
 
 # docker commands
 # docker run --name mysql -v mysql-volume:/var/lib/mysql -e MYSQL_DATABASE=chameleon_db_dev -e MYSQL_ROOT_PASSWORD=chameleon -p 3306:3306 -d mysql
+# sudo docker run --name "chameleonservice" -p 9090:9090 -d "chameleon"
 ```
 
 # test_new_brach_xzy
