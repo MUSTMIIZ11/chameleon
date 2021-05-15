@@ -32,6 +32,8 @@ def check(request):
     #     return render(request, 'tool.html')
 
 
+import cairosvg
+
 
 @csrf_exempt
 def save_map(request):
@@ -56,6 +58,8 @@ def save_map(request):
     # with open(os.path.join(map_dir, str(map.id)+"-"+filename) + '.svg', 'wb') as f:
     with open(os.path.join(map_dir, filename), 'wb') as f:
         f.write(imgdata)
+    cairosvg.svg2png(url=os.path.join(map_dir, filename),
+                     write_to=os.path.join(map_dir, 'map_img/' + map_name + '.jpg'))
     return JsonResponse({
         'status': 'ok',
         'map_id': map.id,

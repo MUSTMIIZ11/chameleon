@@ -39,8 +39,8 @@
 
     <!-- Template Main Javascript File -->
     <script src="{% static 'js/main.js' %}"></script>
-        {% block scripts %}
-        {% endblock %}
+    {% block scripts %}
+    {% endblock %}
 
 
 </head>
@@ -61,7 +61,7 @@
             <ul>
                 <li><a href="/community/">Community</a></li>
                 <li><a href="#" onclick="check_cookie()">Tool</a></li>
-{#                <li><a href="/tool">Tool</a></li>#}
+                {#                <li><a href="/tool">Tool</a></li>#}
                 <li><a href="/login/">Login</a></li>
             </ul>
         </nav><!-- .main-nav -->
@@ -99,20 +99,18 @@
 </html>
 
 
-
 {% load static %}
-<script src={% static '/js/diagram.js'%}></script>
+<script src={% static '/js/diagram.js' %}></script>
 <script>
-    function check_cookie(){
+    function check_cookie() {
         var a = getCookie(user_id)
         console.log(a)
         var user_id = getCookie('user_id') || "-1";
         console.log(user_id)
-        if (getCookie('user_id') == -1){
+        if (getCookie('user_id') == -1) {
             console.log("not login")
             window.location.href = '/login/';
-        }
-        else{
+        } else {
             console.log("login")
             window.location.href = '/tool/';
         }
@@ -129,7 +127,7 @@
         {#        console.log("test")#}
         {#        console.log(data['user_id'])#}
         {#        if (data['user_id'] == -1){#}
-                    {#window.location('/login/');#}
+        {#window.location('/login/');#}
         {#            window.location.href = '/login/';#}
         {#        }#}
         {#        else{#}

@@ -16,7 +16,7 @@ from chameleon import settings
 def index(request):
     # sort the map data based on the 'like' attribute.
     # Select 9 map which have most likes.
-    ordered_map = Map.objects.order_by('-like').all()[:9]
+    ordered_map = Map.objects.order_by('-like').all()
     # display_map_list = dict()
     # for i in range(9):
     #     display_map_list['map' + str(i)] = ordered_map[i].map_url
@@ -25,7 +25,7 @@ def index(request):
     display_map_dict['map_user_all'] = list()
     map_count = 0
     print(display_map_dict)
-    for i in range(9):
+    for i,map in enumerate(ordered_map):
         temp = dict()
         temp['map'] = ordered_map[i].map_url
         temp['map_user'] = User.objects.get(id=ordered_map[i].user_id).username
