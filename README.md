@@ -96,6 +96,7 @@ python manage.py migrate
 管理员界面：http://127.0.0.1:8080/admin/   账号admin 密码admin
 
 Project Online Address: http://159.75.82.228:9090/
+JENKINS: http://159.75.82.228:8080/job/chameleon/
 
 # docker commands
 # docker run --name mysql -v mysql-volume:/var/lib/mysql -e MYSQL_DATABASE=chameleon_db_dev -e MYSQL_ROOT_PASSWORD=chameleon -p 3306:3306 -d mysql
