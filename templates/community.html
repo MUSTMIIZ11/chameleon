@@ -36,7 +36,9 @@
                 <div>
                   <a href="{% static 'img/portfolio/app1.jpg' %}" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="More Details"><i class="ion ion-eye"></i></a>
                   <a href="#" class="link-details" onclick="like_change()"><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" onclick="get_src('0')" title="Download"><i class="ion ion-android-open"></i></a>
+                        {% with ""|add:map0 as static_v %}
+                  <a href="{% url 'qrcode' map0 %}" data-lightbox="portfolio" class="link-details" onclick="get_src('0')" title="Download"><i class="ion ion-android-open"></i></a>
+                {% endwith %}
                 </div>
               </div>
             </div>
