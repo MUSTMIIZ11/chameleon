@@ -6,6 +6,11 @@
 ***
 It is a website of create your own character graph in books. Currently under active development...
 
+### !!!  Notice to the developers !!! : 
+Please commit changes to your own branch, and pull request.
+
+Do not directly commit to the main branch.
+
 TODO LIST:
 
 ### Welcome page 
@@ -82,7 +87,7 @@ export DJANGO_ENV="test" && coverage run --source='.' manage.py test&& coverage 
 coverage report -m
 ```
 
-### Useful commands 好用的命令
+### Useful commands 
 ```shell
 python manage.py startapp xxx  # 创建一个app 名字叫"xxx"
 
@@ -103,7 +108,6 @@ JENKINS: http://159.75.82.228:8080/job/chameleon/
 # sudo docker run --name "chameleonservice" -p 9090:9090 -d "chameleon"
 ```
 
-# test_new_brach_xzy
 
 ### Database Design
 
