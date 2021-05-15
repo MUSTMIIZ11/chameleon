@@ -7,7 +7,7 @@ docker build -t $IMAGE . && \
 # delete running images
 
 RUN_NAME="$CONTAINER""service"
-if docker ps -a | grep -w \"$RUN_NAME\"
+if docker ps -a | grep -w $RUN_NAME
 then
   docker rm -f $RUN_NAME
 fi
