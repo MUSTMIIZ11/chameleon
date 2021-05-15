@@ -149,3 +149,4 @@ python manage.py migrate;
 
 
 New Branch(Feature/BugFix/Main) -> Code Review(Pull Requests) -> Continuous Integration(Github Actions) -> Continuous Deployment(Github webook + Jenkins)
+![Workflow](materials/Workflow.png)
