@@ -12,5 +12,5 @@ then
   docker rm -f $RUN_NAME
 fi
 # run new images
-docker run --name RUN_NAME -d "$CONTAINER"
+docker run --name "$RUN_NAME" -d "$CONTAINER"
 echo "Run successfully"
