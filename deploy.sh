@@ -12,5 +12,5 @@ then
   docker rm -f $RUN_NAME
 fi
 # run new images
-docker run --name "$RUN_NAME" -p 9090:9090 -d "$CONTAINER"
+sudo docker run --name  "$RUN_NAME" -v /home/ubuntu/img/img:/code/chameleon/static/map_img  -p 9090:9090 -d"$CONTAINER"
 echo "Run successfully"
