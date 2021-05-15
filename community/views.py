@@ -21,15 +21,25 @@ def index(request):
     return render(request, 'community.html', display_map_list)
 
 def download(request):
-    return render(request, 'download.html')
+    count = 0
+    if request.method == "GET":
+        img_url = request.GET.get('url')
+        count += 1
+        print("count:", count)
+        print('img_url:', img_url)
+    return render(request, 'download.html', {"img_url": img_url})
+
+# def update_img_url(request):
+#     if request.method == "GET":
+#         img_url = request.GET.get('url')
+#         print("img_url:", img_url)
+#         return HttpResponse(request, {"img_url": img_url})
 
 def makeqrcode(request,data):
 
     url = os.path.join(settings.URL, "community/download")
-    print(url)
-    print(request)
     # url = os.path.join(settings.BASE_DIR, "static/img/portfolio/card3.jpg")
-    img = qrcode.make(url)      #传入网址计算出二维码图片字节数据
+    img = qrcode.make(url)                          #传入网址计算出二维码图片字节数据
     buf = BytesIO()                                 #创建一个BytesIO临时保存生成图片数据
     img.save(buf)                                   #将图片字节数据放到BytesIO临时保存
     image_stream = buf.getvalue()                   #在BytesIO临时保存拿出数据
@@ -38,6 +48,7 @@ def makeqrcode(request,data):
 #        image_data = f.read()
     response = HttpResponse(image_stream, content_type="image/jpg")  #将二维码数据返回到页面
     return response
+
 
 
 def get_all_maps(limit=None):

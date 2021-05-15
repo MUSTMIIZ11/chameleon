@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('download/', views.download, name='download'),
-    re_path(r'qrcode(.+)$', views.makeqrcode, name='qrcode')
+    # path('download', views.update_img_url, name='img_url'),
+    re_path(r'qrcode(.+)$', views.makeqrcode, name='qrcode'),
+    path('download/', views.download, name='download')
 ]

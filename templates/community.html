@@ -28,7 +28,7 @@
             <div class="portfolio-wrap">
 {#              <img src="{% static 'img/portfolio/app1.jpg' %}" class="img-fluid" alt="">#}
                 {% with ""|add:map0 as static_v %}
-                    <img src="{% static static_v  %}" class="img-fluid" alt="">
+                    <img src="{% static static_v  %}" id="img0" class="img-fluid" alt="">
                 {% endwith %}
               <div class="portfolio-info">
                 <h4><a href="#">App 1</a></h4>
@@ -36,8 +36,7 @@
                 <div>
                   <a href="{% static 'img/portfolio/app1.jpg' %}" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="More Details"><i class="ion ion-eye"></i></a>
                   <a href="#" class="link-details" onclick="like_change()"><i class="ion ion-android-favorite-outline"></i></a>
-                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" title="Download"><i class="ion ion-android-open"></i></a>
-                  <!--onclick="show_qrcode()"-->
+                  <a href="{% url 'qrcode' request.path %}" data-lightbox="portfolio" class="link-details" onclick="get_src('0')" title="Download"><i class="ion ion-android-open"></i></a>
                 </div>
               </div>
             </div>
@@ -213,7 +212,18 @@
     }
   }
 </script>
-
+<script>
+    function get_src(num){
+        var img_url = document.getElementById("img"+num).src;
+        pos = img_url.lastIndexOf('/map_img');
+        img_url = img_url.substr(pos+1);
+        $.ajax({
+            type:"GET",
+            url: "/community/download",
+            data:{url:img_url},
+        });
+    }
+</script>
 <!--
 <script>
   function show_qrcode(){

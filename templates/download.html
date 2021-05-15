@@ -6,13 +6,18 @@
     <title>Title</title>
 </head>
 <body>
+<!--
     <img src="{% static 'img/portfolio/card3.jpg' %}" class="img-fluid" id="download_img" />
+-->
+    {% with ""|add:img_url as img %}
+        <img src="{% static img %}" class="img-fluid" id="download_img" />
+    {% endwith %}
 </body>
 </html>
 <script>
 
     function download_Img(filename, content_url) {
-        var a = document.createElement('a');
+        var a = document.createElement("a");
 
         a.style = "display: none";
         a.href = content_url;
@@ -27,9 +32,10 @@
     }
 </script>
 <script>
-    document.getElementById('download_img').onclick = function(){
-        var img_name = "card3.jpg";
-        var data = document.getElementById('download_img').src;
+    document.getElementById("download_img").onclick = function(){
+        var img_name = "download.jpg";
+        var data = document.getElementById("download_img").src;
+        alert(data);
         download_Img(img_name, data);
     }
 </script>
