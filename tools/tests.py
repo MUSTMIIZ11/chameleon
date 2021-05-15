@@ -76,7 +76,7 @@ class ToolsViewsTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()['status'], 'ok')
         self.assertEqual(response.json()['user_id'], 2)
-        self.assertEqual(response.json()['map_url'], '2' + '-' + 'test_map_name'
+        self.assertEqual(response.json()['map_url'], 'map_img/' + 'test_map_name' + '.svg'
                          )
 
     def test_save_map_with_non_base64_img_data(self):
