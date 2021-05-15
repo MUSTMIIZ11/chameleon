@@ -9,4 +9,5 @@ COPY requirements /code/
 RUN pip install -r requirements
 COPY . /code/
 ENV DJANGO_ENV=devlopment
+ENV DJANGO_HOST="159.75.82.228:9090"
 CMD python manage.py runserver 0.0.0.0:9090
