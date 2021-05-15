@@ -55,7 +55,7 @@ def download(request):
 #         return HttpResponse(request, {"img_url": img_url})
 
 def makeqrcode(request, data):
-    url = settings.URL+'/'+ "community/download?url=" + data
+    url = "http://" + settings.URL+'/'+ "community/download?url=" + data
     # url = os.path.join(settings.BASE_DIR, "static/img/portfolio/card3.jpg")
     img = qrcode.make(url)  # 传入网址计算出二维码图片字节数据
     buf = BytesIO()  # 创建一个BytesIO临时保存生成图片数据
