@@ -140,7 +140,7 @@ function getCookie(cookieName){
         if(cookieArr[i]) {
             // 以等号（=）分组
             cookieSplit=cookieArr[i].split("=");
-            cookieObj[cookieSplit[0]]=cookieSplit[1];
+            cookieObj[cookieSplit[0].trim()]=cookieSplit[1].trim();
         }
     return cookieObj[cookieName];
 }
