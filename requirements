@@ -3,4 +3,3 @@ pymysql
 coverage
 qrcode
 Pillow
-cairosvg

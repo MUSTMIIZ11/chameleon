@@ -32,9 +32,6 @@ def check(request):
     #     return render(request, 'tool.html')
 
 
-import cairosvg
-
-
 @csrf_exempt
 def save_map(request):
     # Save map from diagrams.net
@@ -49,17 +46,17 @@ def save_map(request):
     imgdata = base64.b64decode(imgstring)
     # filename = str(user_id) + '-' + map_name
     # filename 1. 创建数据库里map_url('map_img/xxx.jpg') 2. 图片存储路径，跟前面路径一样，存jpg。
+    map_dir = os.path.join(BASE_DIR, 'static/')
     filename = 'map_img/' + map_name + '.svg'
+    jpg =  os.path.join(map_dir, 'map_img/' + map_name + '.jpg')
     map = Map.objects.create(map_name=map_name, user_id=user_id, map_url=filename)
     # map_dir = os.path.join(BASE_DIR, 'image_map')
-    map_dir = os.path.join(BASE_DIR, 'static/')
     # if not os.path.exists(map_dir):
     #     os.makedirs(map_dir)
     # with open(os.path.join(map_dir, str(map.id)+"-"+filename) + '.svg', 'wb') as f:
     with open(os.path.join(map_dir, filename), 'wb') as f:
         f.write(imgdata)
-    cairosvg.svg2png(url=os.path.join(map_dir, filename),
-                     write_to=os.path.join(map_dir, 'map_img/' + map_name + '.jpg'))
+
     return JsonResponse({
         'status': 'ok',
         'map_id': map.id,

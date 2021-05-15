@@ -31,9 +31,15 @@
               <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
 {#              <img src="{% static '/map_img/the_rings.jpg' %}" class="img-fluid" alt="">#}
+            {% if i.map_src %}
+                    <img src="{{ i.map_src }}" class="img-fluid" alt="">
+
+            {% else %}
                 {% with ""|add:i.map as static_v %}
                     <img src="{% static static_v %}" class="img-fluid" alt="">
                 {% endwith %}
+            {% endif %}
+
               <div class="portfolio-info">
                 <h4><a href="#">{{ i.map_user }}</a></h4>
 {#                <p>App</p>#}

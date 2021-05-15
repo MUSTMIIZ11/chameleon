@@ -1,12 +1,13 @@
 import base64
 import os
+import sys
 from io import BytesIO
 
 import qrcode
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from chameleon.settings import MAP_DIR
+from chameleon.settings import MAP_DIR, BASE_DIR
 from .models import Map
 from signup.models import User
 import qrcode
@@ -25,10 +26,25 @@ def index(request):
     display_map_dict['map_user_all'] = list()
     map_count = 0
     print(display_map_dict)
-    for i,map in enumerate(ordered_map):
+    for i, map in enumerate(ordered_map):
         temp = dict()
+
+        if '.svg' in map.map_url:
+            map_dir = os.path.join(BASE_DIR, 'static/')
+            filename = os.path.join(map_dir ,map.map_url)
+            # # 为了兼容win系统
+            # if sys.platform.startswith('win'):
+            #     filename=filename.replace('/','\\')
+            # print(filename)
+            with open(filename, 'rb') as f:
+                map_data = f.read()
+                map_data = base64.b64encode(map_data)
+                temp['map_src'] = 'data:image/svg+xml;base64,' + map_data.decode()
         temp['map'] = ordered_map[i].map_url
-        temp['map_user'] = User.objects.get(id=ordered_map[i].user_id).username
+        try:
+            temp['map_user'] = User.objects.get(id=ordered_map[i].user_id).username
+        except:
+            temp['map_user'] = 'unknown'
         temp['map_count'] = map_count
         map_count += 1
         display_map_dict['map_user_all'].append(temp)
@@ -36,7 +52,8 @@ def index(request):
     return render(request, 'community.html', display_map_dict)
 
 
-from django.utils.http import  urlencode
+from django.utils.http import urlencode
+
 
 def download(request):
     count = 0
@@ -55,7 +72,7 @@ def download(request):
 #         return HttpResponse(request, {"img_url": img_url})
 
 def makeqrcode(request, data):
-    url = "http://" + settings.URL+'/'+ "community/download?url=" + data
+    url = "http://" + settings.URL + '/' + "community/download?url=" + data
     # url = os.path.join(settings.BASE_DIR, "static/img/portfolio/card3.jpg")
     img = qrcode.make(url)  # 传入网址计算出二维码图片字节数据
     buf = BytesIO()  # 创建一个BytesIO临时保存生成图片数据
@@ -66,14 +83,3 @@ def makeqrcode(request, data):
     #        image_data = f.read()
     response = HttpResponse(image_stream, content_type="image/jpg")  # 将二维码数据返回到页面
     return response
-
-
-def get_all_maps(limit=None):
-    dir = MAP_DIR
-    maps = []
-    for map_filename in os.path.dirname(dir):
-        with open(map_filename, 'wb') as f:
-            map_data = f.read()
-            map_data = base64.b64decode(map_data)
-        maps.append(bytes('data:image/svg+xml;base64,') + map_data)
-    return maps
