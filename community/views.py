@@ -24,7 +24,7 @@ def index(request):
     #     # display_map_list['map' + str(i) + 'user'] = User.objects.get(id=ordered_map[i].user_id).username
     display_map_dict = dict()
     display_map_dict['map_user_all'] = list()
-    map_count = 0
+    map_class = [0, 1, 2]
     print(display_map_dict)
     for i, map in enumerate(ordered_map):
         temp = dict()
@@ -32,7 +32,7 @@ def index(request):
         if '.svg' in map.map_url:
             try:
                 map_dir = os.path.join(BASE_DIR, 'static/')
-                filename = os.path.join(map_dir ,map.map_url)
+                filename = os.path.join(map_dir, map.map_url)
                 # # 为了兼容win系统
                 # if sys.platform.startswith('win'):
                 #     filename=filename.replace('/','\\')
@@ -48,10 +48,10 @@ def index(request):
             temp['map_user'] = User.objects.get(id=ordered_map[i].user_id).username
         except:
             temp['map_user'] = 'unknown'
-        temp['map_count'] = map_count
-        map_count += 1
+        tmp = i % 3
+        temp['map_count'] = map_class[tmp]
         display_map_dict['map_user_all'].append(temp)
-    print(display_map_dict)
+    # print(display_map_dict)
     return render(request, 'community.html', display_map_dict)
 
 
