@@ -135,3 +135,6 @@ DROP table communicy;
 python manage.py makemigrations
 python manage.py migrate;
 ```
+
+
+### Project Workflow
