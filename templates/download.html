@@ -9,9 +9,16 @@
 <!--
     <img src="{% static 'img/portfolio/card3.jpg' %}" class="img-fluid" id="download_img" />
 -->
+{% if map_src %}
+    <img src="{{ map_src }}" class="img-fluid" id="download_img"/>
+
+{% else %}
     {% with ""|add:img_url as img %}
-        <img src="{% static img %}" class="img-fluid" id="download_img" />
+        <img src="{% static img %}" class="img-fluid" id="download_img"/>
+
     {% endwith %}
+
+{% endif %}
 </body>
 </html>
 <script>
@@ -32,7 +39,7 @@
     }
 </script>
 <script>
-    document.getElementById("download_img").onclick = function(){
+    document.getElementById("download_img").onclick = function () {
         var img_name = "download.jpg";
         var data = document.getElementById("download_img").src;
         alert(data);

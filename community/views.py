@@ -65,7 +65,21 @@ def download(request):
         count += 1
         print("count:", count)
         print('img_url:', img_url)
-    return render(request, 'download.html', {"img_url": img_url})
+        data =  {"img_url": img_url}
+        if '.svg' in img_url:
+            map_dir = os.path.join(BASE_DIR, 'static/')
+            filename = os.path.join(map_dir, img_url)
+            # # 为了兼容win系统
+            # if sys.platform.startswith('win'):
+            #     filename=filename.replace('/','\\')
+            # print(filename)
+            with open(filename, 'rb') as f:
+                map_data = f.read()
+                map_data = base64.b64encode(map_data)
+                map_src = 'data:image/svg+xml;base64,' + map_data.decode()
+                data = {"img_url": img_url, 'map_src': map_src}
+
+        return render(request, 'download.html',data)
 
 
 # def update_img_url(request):
