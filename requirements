@@ -2,4 +2,4 @@ Django
 pymysql
 coverage
 qrcode
-pillow
+Pillow
