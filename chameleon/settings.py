@@ -136,3 +136,5 @@ if os.environ.get('DJANGO_ENV') == 'test':
 #     'signup.views.CustomBackend',
 # )
 MAP_DIR = BASE_DIR + 'image_map'
+
+ALLOWED_HOSTS = ['159.75.82.228:9090', 'localhost', '127.0.0.1']
