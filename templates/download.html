@@ -63,7 +63,7 @@
 
     window.onload = function () {
         var node = document.getElementById('download_img');
-        if (node.src.startsWith('data:image/svg+xml;base64')!==-1){
+        if (node.src.startsWith('data:image/svg+xml;base64')!==false){
         svgString2Image(node.src, 800, 800, 'png', /* callback that gets png data URL passed to it */function (pngData) {
 
 
