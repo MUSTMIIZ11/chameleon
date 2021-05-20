@@ -114,24 +114,24 @@ JENKINS: http://159.75.82.228:8080/job/chameleon/
 
 #### User
 
-| 列名       | 类型         | KEY  | 可否为空 | 注释     |
+| Attribute       | Type         | KEY  | Whether can be NULL | Comments     |
 | ---------- | ------------ | ---- | -------- | -------- |
-| id      | int   | PRIMARY KEY  | 否       | 自增主键ID   |
-| username       | char(128)    |      | 否       | 用户名     |
-| password      | varchar(255) |      | 否      | 密码     |
-| createtime | datetime     |      | 是       | 创建时间 |
+| id      | int   | PRIMARY KEY  | No       | Auto increase primary key   |
+| username       | char(128)    |      | No       | user name     |
+| password      | varchar(255) |      | No      | password set by user     |
+| createtime | datetime     |      | Yes       | account create time |
 
 
 #### Map
 
-| 列名       | 类型         | KEY  | 可否为空 | 注释     |
+| Attribute       | Type         | KEY  | Whether can be NULL | Comments     |
 | ---------- | ------------ | ---- | -------- | -------- |
-| id      |int   | PRI  | 否       | 自增主键ID   |
-| map_name       | char(128)    |      | 否       | 图谱名称     |
-| map_url       | text    |      | 否       | 图谱链接     |
-| user_id      | int |      | 是       | 图谱所属的用户ID     
-| like | int |    | 否 | 图谱获得的点赞数
-| createtime | datetime     |      | 是       | 创建时间 |
+| id      |int   | PRI  | No       | Auto increase key   |
+| map_name       | char(128)    |      | No       | map name     |
+| map_url       | text    |      | No       | map url     |
+| user_id      | int |      | Yes       | user id(indicate which user create this map) |     
+| like | int |    | No | The likes this map get |
+| createtime | datetime     |      | Yes       | Creation time |
 
 ### TroubleShooting
 ```shell
