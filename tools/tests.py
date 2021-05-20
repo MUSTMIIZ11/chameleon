@@ -12,18 +12,24 @@ from signup.models import User
 
 
 class MapTestCase(TestCase):
+    """
+    Test Map Case
+    """
     def setUp(self):
         self.user = User.objects.create(username='nick', password='123')
 
+    # test map is created
     def test_map_create(self):
         Map.objects.create(map_name='map', map_url='', user_id=self.user.id)
         maps = Map.objects.filter(user_id=self.user.id)
         self.assertEqual(len(maps), 1)
 
+    # test map __str__ function is called and equal to map name
     def test_map_str(self):
         map = Map.objects.create(map_name='map', map_url='', user_id=self.user.id)
         self.assertEqual(str(map), map.map_name)
 
+    # test map model fields limit length
     def test_map_field_maxlength(self):
         map = Map.objects.create(map_name='map', map_url='', user_id=self.user.id)
         max_length = map._meta.get_field('map_name').max_length
@@ -31,6 +37,7 @@ class MapTestCase(TestCase):
         max_length = map._meta.get_field('map_url').max_length
         self.assertEqual(max_length, 100)
 
+    # skip this test because local environment we test with sqlite3, sqlite3 does not have the limitation of field length, but mysql have the limitation
     @unittest.skip("sqlite does not require the field length of char field")
     def test_map_create_failed_with_exceeded_field(self):
         map_name = ['x' for i in range(100)]
@@ -44,17 +51,25 @@ class MapTestCase(TestCase):
 
 
 class ToolsViewsTestCase(TestCase):
+    """
+    Test Tools
+    """
     def setUp(self) -> None:
         pass
 
     def tearDown(self) -> None:
         pass
 
+    """
+    Test the tool/ router is correctly triggered.
+    """
     def test_index(self):
         c = Client()
         response = c.get('/tool/')
         self.assertEqual(response.status_code, 200)
-
+    """
+    I mock the render and return a string instead, I only want to test the router is triggered correctly.
+    """
     @patch('tools.views.render')
     def test_mock_index(self, mock_render):
         c = Client()
@@ -64,6 +79,9 @@ class ToolsViewsTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.content, b'tools_html')
 
+    """
+    Mock the open function because I do not want to produce new files and modify files in test.
+    """
     @patch('builtins.open', new_callable=mock_open())
     def test_save_map(self, mock_open_):
         c = Client()
@@ -79,6 +97,9 @@ class ToolsViewsTestCase(TestCase):
         self.assertEqual(response.json()['map_url'], 'map_img/' + 'test_map_name' + '.svg'
                          )
 
+    """
+    If a request to "/tool/save" carries non-base64 data in it's body, raise corresponding error here.
+    """
     def test_save_map_with_non_base64_img_data(self):
         c = Client()
         with self.assertRaises(binascii.Error) as e:

@@ -63,9 +63,14 @@
 
     window.onload = function () {
         var node = document.getElementById('download_img');
-        svgString2Image(node.src, 800, 600, 'png', /* callback that gets png data URL passed to it */function (pngData) {
+        if (node.src.startsWith('data:image/svg+xml;base64')!==-1){
+        svgString2Image(node.src, 800, 800, 'png', /* callback that gets png data URL passed to it */function (pngData) {
+
+
             // pngData is base64 png string
         });
+        console.log('conver svg to png');
+        }
         console.log('onload')
     }
 
