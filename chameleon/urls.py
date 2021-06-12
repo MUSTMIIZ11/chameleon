@@ -21,7 +21,7 @@ from django.views.generic import TemplateView
 from chameleon import settings
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='index.html'),name='index'),
+    path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('welcome/', include('welcome.urls')),
     path('community/', include('community.urls')),
     path('tool/',include('tools.urls')),
